@@ -1,0 +1,20 @@
+// Import Bootstrap v5
+@import "~bootstrap/scss/bootstrap";
+// Import Toastr for notifications
+@import 'toastr';
+// Custom SCSS
+@import "sidebar";
+
+// Global styles
+main{
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100vh;
+  height: -webkit-fill-available;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background-color: $dark;
+}
+.table{
+  text-align: left;
+}

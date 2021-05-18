@@ -1,0 +1,49 @@
+<section class="py-5 text-center container">
+
+
+  <h2 class="text-light"><%= @client.name %></h2>
+
+  <h4 class="text-light">Contacts</h4>
+  <div class="btn-group mt-4 mb-4" role="group" aria-label="Basic outlined example">
+    <button type="button" class="btn btn-primary">Create new contact</button>
+    <button type="button" class="btn btn-primary">A big long button name for testing</button>
+    <button type="button" class="btn btn-primary">Middle</button>
+    <button type="button" class="btn btn-primary">Middle</button>
+    <button type="button" class="btn btn-primary">Middle</button>
+    <button type="button" class="btn btn-primary">Right</button>
+  </div>
+  <table class="table text-light">
+    <thead>
+      <tr>
+        <th>ID#</th>
+        <th>Contact</th>
+        <th>Department</th>
+        <th>Phone</th>
+        <th>Mobile</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody id="ad-table">
+      <% @contacts.each do |c| %>
+      <tr>
+        <td><%= c.id %></td>
+        <td><%= c.name %></td>
+        <td><%= c.department %></td>
+        <td><%= c.phone %></td>
+        <td><%= c.mobile %></td>
+        <td><%= c.email %></td>
+      </tr>
+      <% end %>
+    </tbody>
+    </table>
+
+  <br />
+  <div class="card">
+    <div class="card-header">
+      Bookings
+    </div>
+    <div class="card-body">
+      <%= render partial: "shared/ad_table", object: @ads %>
+      </div>
+    </div>
+</section>

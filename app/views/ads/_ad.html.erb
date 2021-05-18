@@ -1,0 +1,13 @@
+<tr>
+  <td><%= ad.id %></td>
+  <td><%= ad.client.name.truncate(30) %></td>
+  <td><%= ad.width.to_s + " x " + ad.height.to_s %></td>
+  <td><%= ad.position.name %></td>
+  <td><%= ad.position.platform.name %></td>
+  <td><%= ad.rundate.strftime("%a, %d %b") %></td>
+  <td><%= ad.status %></td>
+  <td>$<%= ad.price %></td>
+
+  <td><%= ad.created_at.strftime("%d/%m/%y") %></td>
+  <td><%= time_ago_in_words(ad.updated_at) %> ago by <%= get_username_by_id(ad.updated_by) %></td>
+</tr>

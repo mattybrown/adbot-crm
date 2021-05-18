@@ -1,0 +1,46 @@
+<section class="py-5 text-center container">
+
+  <div class="card">
+    <div class="card-header">
+      My bookings
+    </div>
+    <div class="card-body">
+      <button class="btn btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAd" type="submit">Create booking</button>
+
+      <hr>
+
+      <%= render partial: "shared/ad_table", object: @ads %>
+
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasAd" aria-labelledby="Positions">
+        <div class="offcanvas-header">
+          <h3 class="offcanvas-title" id="offcanvasCreateAd">Create Ad</h3>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <%= form_with( model: @ad, id: "new-ad", local: false ) do |form| %>
+            <%= form.label :client %><br>
+            <%= form.collection_select(:client_id, @clients, :id, :name, {}, {class: "form-select"}) %>
+            <%= form.label :position %><br>
+            <%= form.collection_select(:position_id, @positions, :id, :name, {}, {class: "form-select"}) %>
+            <%= form.label :width, class: "form-label" %><br>
+            <%= form.number_field :width, class: "form-control" %>
+            <%= form.label :height, class: "form-label" %><br>
+            <%= form.number_field :height, class: "form-control" %>
+            <%= form.label :status, class: "form-label" %><br>
+            <%= form.text_field :status, class: "form-control" %>
+            <%= form.label :price, class: "form-label" %><br>
+            <%= form.number_field :price, step: 0.01, class: "form-control" %>
+            <%= form.label :rundate, class: "form-label" %><br>
+            <%= form.date_field :rundate %>
+            <%= form.hidden_field :user_id, value: current_user.id %>
+            <%= form.hidden_field :updated_by, value: current_user.id %>
+            <%= form.submit %>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</section>

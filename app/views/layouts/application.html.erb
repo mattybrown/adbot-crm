@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Adbot</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'https://cdn.jsdelivr.net/npm/simple-datatables@latest' %>
+
+  </head>
+
+  <body>
+
+    <main>
+      <%= render "shared/sidebar" %>
+      <%= render "shared/toastr-notifications" %>
+      <div class="container overflow-auto" style="max-width:94.3%">
+        <%= yield %>
+      </div>
+
+    </main>
+
+    <script>
+      dataTable = new simpleDatatables.DataTable(".data-table")
+    </script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<section class="py-5 text-center container">
+
+  <div class="card">
+    <div class="card-header">
+      Platforms
+    </div>
+    <div class="card-body">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">ID#</th>
+            <th scope="col">Platform</th>
+            <th scope="col">Controls</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @platforms.each do |p| %>
+            <tr>
+              <td><%= p.id %></td>
+              <td><%= p.name %></td>
+              <td>
+                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasPosition<%= p.id %>" aria-controls="offcanvasExample">
+                  Show positions
+                </button>
+              </td>
+            </tr>
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasPosition<%= p.id %>" aria-labelledby="Positions">
+              <div class="offcanvas-header">
+                <h3 class="offcanvas-title" id="offcanvasExampleLabel"><%= p.name %></h3>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <h5>Positions</h5>
+                <ul>
+                  <% p.positions.each do |q| %>
+                    <li><%= q.name %></li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</section>
