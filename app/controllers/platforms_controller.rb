@@ -4,16 +4,14 @@ class PlatformsController < ApplicationController
   end
 
   def new
-    load_and_authorize_resource
     @platform = Platform.new
   end
 
   def create
-    load_and_authorize_resource
     @platform = Platform.create(platform_params)
 
     if @platform.save
-      redirect_to @platform
+      redirect_to platforms_path
     else
       render :new
     end

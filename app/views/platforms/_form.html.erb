@@ -1,0 +1,6 @@
+<%= form_with model: @platform do |form| %>
+  <%= form.label :name %><br />
+  <%= form.text_field :name %>
+  <%= form.hidden_field :organisation_id, value: current_user.organisation_id %>
+  <%= form.submit %>
+<% end %>
