@@ -1,0 +1,7 @@
+<%= form_with model: @position do |form| %>
+  <%= form.label :name %><br />
+  <%= form.text_field :name %><br>
+  <%= form.label :platform %><br>
+  <%= form.collection_select(:platform_id, @platforms, :id, :name, {}, {class: "form-select"}) %><br>
+  <%= form.submit %>
+<% end %>

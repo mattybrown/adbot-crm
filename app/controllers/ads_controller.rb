@@ -1,8 +1,13 @@
 class AdsController < ApplicationController
+  protect_from_forgery with: :exception
+  before_action :authenticate_user!
 
   def index
-
-    @ads = current_user.ads
+    if current_user.manager_role = true || current_user.superadmin_role = true
+      @ads = Ad.all
+    else
+      @ads = current_user.ads
+    end
     @ad = Ad.new
     @clients = Client.all
     @positions = Position.all
