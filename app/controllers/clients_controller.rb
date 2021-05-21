@@ -8,4 +8,21 @@ class ClientsController < ApplicationController
     @contacts = Contact.where(client_id: @client.id)
     @ads = @client.ads
   end
+
+  def new
+    @client = Client.new
+  end
+
+  def create
+
+  end
+
+  def edit
+
+  end
+
+  def delete
+
+  end
+  
 end

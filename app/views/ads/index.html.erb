@@ -4,9 +4,10 @@
     <div class="card-header">
       Bookings
     </div>
-    <div class="card-body">
-      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAd" type="submit">Create booking</button>
-
+    <div class="card-body">  
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAd" type="submit">Create booking</button>
+      </div>
       <hr>
 
       <%= render partial: "shared/ad_table", object: @ads %>

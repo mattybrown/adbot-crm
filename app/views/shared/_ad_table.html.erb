@@ -1,14 +1,16 @@
 <table class="table table-hover data-table">
   <thead>
     <tr>
-      <th scope="col">ID#</th>
-      <th scope="col">Client</th>
-      <th scope="col">W x H</th>
+      <th>Client</th>
+      <th>W x H</th>
       <th>Position</th>
       <th>Platform</th>
       <th>Publication date</th>
       <th>Status</th>
       <th>Price</th>
+      <% if can? :manage, User %>
+        <th>Sales Rep</th>
+      <% end %>
       <th>Created</th>
       <th>Updated</th>
     </tr>
@@ -17,7 +19,6 @@
     <!-- render @ads -->
     <% @ads.each do |ad| %>
     <tr>
-      <td><%= ad.id %></td>
       <td><%= ad.client.name.truncate(30) %></td>
       <td><%= ad.width.to_s + " x " + ad.height.to_s %></td>
       <td><%= ad.position.name %></td>
@@ -25,6 +26,9 @@
       <td><%= ad.rundate.strftime("%a, %d %b") %></td>
       <td><%= ad.status %></td>
       <td>$<%= ad.price %></td>
+      <% if can? :manage, User %>
+        <td><%= ad.user.first_name %></td>
+      <% end %>
 
       <td><%= ad.created_at.strftime("%d/%m/%y") %></td>
       <td><%= time_ago_in_words(ad.updated_at) %> ago by <%= get_username_by_id(ad.updated_by) %></td>

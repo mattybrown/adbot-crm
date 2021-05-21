@@ -3,7 +3,7 @@ class AdsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    if current_user.manager_role = true || current_user.superadmin_role = true
+    if can? :manage, User
       @ads = Ad.all
     else
       @ads = current_user.ads
