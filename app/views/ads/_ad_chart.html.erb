@@ -1,0 +1,1 @@
+<%= line_chart Ad.group_by_day(:created_at, format: "%a").count, width: "100%", height: "200px" %>

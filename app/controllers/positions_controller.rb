@@ -9,6 +9,7 @@ class PositionsController < ApplicationController
     @position = Position.create(position_params)
 
     if @position.save
+      flash.notice = "Position, #{@position.name} created"
       redirect_to platforms_path
     else
       render :new

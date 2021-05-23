@@ -11,20 +11,32 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th scope="col">ID#</th>
-            <th scope="col">Platform</th>
-            <th scope="col">Controls</th>
+            <th>ID#</th>
+            <th>Platform</th>
+            <th>Controls</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           <% @platforms.each do |p| %>
             <tr>
               <td><%= p.id %></td>
-              <td><%= p.name %></td>
+              <td><%= link_to(p.name, platform_path(p.id)) %></td>
               <td>
                 <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasPosition<%= p.id %>" aria-controls="offcanvasExample">
                   Show positions
                 </button>
+              </td>
+              <td>
+                <div class="dropdown">
+                  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Actions
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><%= link_to('Edit', edit_platform_url(p.id), class: 'dropdown-item') %></li>
+                    <!-- <li><%= link_to('Delete', platform_path(p.id), method: :delete, data: {confirm: 'Are you sure?'}, class: 'dropdown-item') %></li> -->
+                  </ul>
+                </div>
               </td>
             </tr>
 

@@ -1,25 +1,6 @@
-<table class="table table-hover data-table">
-  <thead>
+
     <tr>
-      <th>Client</th>
-      <th>W x H</th>
-      <th>Position</th>
-      <th>Platform</th>
-      <th>Publication date</th>
-      <th>Status</th>
-      <th>Price</th>
-      <% if can? :manage, User %>
-        <th>Sales Rep</th>
-      <% end %>
-      <th>Created</th>
-      <th>Updated</th>
-    </tr>
-  </thead>
-  <tbody id="ad-table">
-    <!-- render @ads -->
-    <% @ads.each do |ad| %>
-    <tr>
-      <td><%= ad.client.name.truncate(30) %></td>
+      <td><a href="<%= client_path(ad.client.id) %>"><%= ad.client.name.truncate(30) %></a></td>
       <td><%= ad.width.to_s + " x " + ad.height.to_s %></td>
       <td><%= ad.position.name %></td>
       <td><%= ad.position.platform.name %></td>
@@ -33,6 +14,3 @@
       <td><%= ad.created_at.strftime("%d/%m/%y") %></td>
       <td><%= time_ago_in_words(ad.updated_at) %> ago by <%= get_username_by_id(ad.updated_by) %></td>
     </tr>
-    <% end %>
-  </tbody>
-  </table>

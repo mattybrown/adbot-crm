@@ -52,7 +52,7 @@
       Bookings
     </div>
     <div class="card-body">
-      <%= render partial: "shared/ad_table", object: @ads %>
-      </div>
+      <%= render partial: "shared/ad_table_container", locals: {ads: @ads} %>
     </div>
+  </div>
 </section>

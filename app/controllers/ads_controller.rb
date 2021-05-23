@@ -10,6 +10,7 @@ class AdsController < ApplicationController
     end
     @ad = Ad.new
     @clients = Client.all
+    @platforms = Platform.all
     @positions = Position.all
   end
 

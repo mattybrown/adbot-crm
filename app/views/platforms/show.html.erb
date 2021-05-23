@@ -1,0 +1,30 @@
+<section class="py-5 container">
+  <div class="card">
+    <div class="card-header">
+      <%= @platform.name %>
+    </div>
+    <div class="card-body">
+      <div class="accordion" id="positionAccordion">
+        <% @positions.each do |p| %>
+          <% if p.ads.in_publication_range(Date.today, publication_end_range(p.platform.id)).count > 0 %>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading-<%= p.id %>">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= p.id %>" aria-controls="collapse<%= p.id %>">
+                  <%= p.name %>
+                </button>
+              </h2>
+              <div id="collapse<%= p.id %>" class="accordion-collapse collapse" aria-labelledby="heading-<%= p.id %>" data-bs-parent="#positionAccordion">
+                <div class="accordion-body">
+
+                  <%= render partial: "shared/ad_table_container", locals: {ads: p.ads.in_publication_range(Date.today, publication_end_range(p.platform.id))} %>
+
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+
+        </div> <!-- End accordion -->
+      </div><!-- End card body -->
+    </div>
+</section>
