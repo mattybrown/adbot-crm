@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   root to: "welcome#index"
 
   resources :organisations
-  resources :clients
-  resources :contacts
+  resources :clients do
+    resources :contacts
+  end
   resources :platforms
   resources :positions
   resources :targets

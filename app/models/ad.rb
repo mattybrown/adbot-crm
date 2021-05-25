@@ -6,4 +6,5 @@ class Ad < ApplicationRecord
   def self.in_publication_range(start_date, end_date)
     where("rundate >= ? AND rundate <= ?", start_date, end_date)
   end
+
 end

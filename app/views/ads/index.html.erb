@@ -8,10 +8,10 @@
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAd" type="submit">Create booking</button>
       </div>
-        <%= render partial: "ad_chart" %>
-      <hr>
 
-          <%= render partial: "shared/ad_table_container", locals: {ads: @ads} %>
+      <hr>
+      <%= render partial: "ad_chart", locals: {ads: @ads} %>
+      <%= render partial: "shared/ad_table_container", locals: {ads: @ads} %>
 
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasAd" aria-labelledby="Positions">
         <div class="offcanvas-header">

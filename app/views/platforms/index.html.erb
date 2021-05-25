@@ -5,8 +5,11 @@
       Platforms
     </div>
     <div class="card-body">
-      <%= link_to('New Platform', new_platform_url, class: "btn btn-primary") %>
-      <%= link_to('New Position', new_position_url, class: "btn btn-primary") %>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <%= link_to('New Platform', new_platform_url, class: "btn btn-primary") %>
+        <%= link_to('New Position', new_position_url, class: "btn btn-primary") %>
+      </div>
+      
       <hr />
       <table class="table table-hover">
         <thead>

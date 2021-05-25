@@ -14,7 +14,15 @@ class ClientsController < ApplicationController
   end
 
   def create
+    @client = Client.create(client_params)
 
+    if @client.save
+      flash.notice = "Client saved"
+      redirect_to clients_path
+    else
+      flash.now[:error] = "Something went wrong: #{@client.errors.full_messages}"
+      render_action :new
+    end
   end
 
   def edit
@@ -24,5 +32,10 @@ class ClientsController < ApplicationController
   def delete
 
   end
-  
+
 end
+
+private
+  def client_params
+    params.require(:client).permit(:name, :address, :phone, :website, :organisation_id, :user_id)
+  end

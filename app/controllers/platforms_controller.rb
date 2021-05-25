@@ -42,6 +42,10 @@ class PlatformsController < ApplicationController
     end
   end
 
+  def get_positions
+    @positions
+  end
+
   private
     def platform_params
       params.require(:platform).permit(:name, :organisation_id)

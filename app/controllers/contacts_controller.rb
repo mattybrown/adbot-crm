@@ -8,8 +8,10 @@ class ContactsController < ApplicationController
     @contact = Contact.create(contact_params)
 
     if @contact.save
-      redirect_back
+      flash.notice = "Contact saved"
+      redirect_to client_path(params[:client_id])
     else
+      flash.now[:error] = "Something went wrong: #{@contact.errors.full_messages}"
       render :new
     end
   end
@@ -28,7 +30,7 @@ class ContactsController < ApplicationController
 
   private
     def contact_params
-      params.require(:contact).permit(:name, :client_id)
+      params.require(:contact).permit(:name, :client_id, :department, :phone, :mobile, :email)
     end
 
 end

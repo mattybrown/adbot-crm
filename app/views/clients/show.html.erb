@@ -7,8 +7,9 @@
     </div>
     <div class="card-body">
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button class="btn btn-primary me-md-2" type="button">Create contact</button>
+        <%= link_to('Add Contact', new_client_contact_url(@client.id), class: "btn btn-primary") %>
       </div>
+      <hr />
       <table class="table">
         <thead>
           <tr>
@@ -34,8 +35,8 @@
                   Actions
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><%= link_to('Edit', edit_contact_url(c.id), class: 'dropdown-item') %></li>
-                  <li><%= link_to('Delete', contact_path(c.id), method: :delete, data: {confirm: 'Are you sure?'}, class: 'dropdown-item') %></li>
+                  <li><%= link_to('Edit', edit_client_contact_url(c.id), class: 'dropdown-item') %></li>
+                  <li><%= link_to('Delete', client_contact_path(@client.id, c.id), method: :delete, data: {confirm: 'Are you sure?'}, class: 'dropdown-item') %></li>
                 </ul>
               </div>
             </td>

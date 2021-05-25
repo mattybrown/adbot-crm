@@ -11,5 +11,12 @@ module AdsHelper
     end
   end
 
+  def value(collection)
+    v = 0
+    collection.each do |c|
+      c.price += v
+    end
+    return v
+  end
 
 end
