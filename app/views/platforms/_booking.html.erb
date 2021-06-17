@@ -1,0 +1,43 @@
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasAd" aria-labelledby="Positions">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title" id="offcanvasCreateAd">Create Ad</h3>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <%= form_with( model: @ad, id: "new-ad", local: false ) do |form| %>
+      <div class="mb-3">
+        <%= form.label :client, class: "form-label" %>
+        <%= form.collection_select(:client_id, clients, :id, :name, {}, {class: "form-select form-control"}) %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :position, class: "form-label" %>
+        <%= form.collection_select(:position_id, positions, :id, :name, {}, {class: "form-select position-select form-control"}) %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :width, class: "form-label" %>
+        <%= form.number_field :width, class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :height, class: "form-label" %>
+        <%= form.number_field :height, class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :status, class: "form-label" %>
+        <%= form.text_field :status, class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :price, class: "form-label" %>
+        <%= form.number_field :price, step: 0.01, class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :rundate, class: "form-label" %>
+        <%= form.date_field :rundate %>
+      </div>
+      <div class="mb-3">
+      <%= form.hidden_field :user_id, value: current_user.id %>
+      <%= form.hidden_field :updated_by, value: current_user.id %>
+      <%= form.submit :Submit, class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

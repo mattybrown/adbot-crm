@@ -1,0 +1,3 @@
+var ads = document.querySelector("#ad-table");
+ads.insertAdjacentHTML("afterbegin", "<%= j render(@ad) %>");
+toastr.success('Ad created successfully', 'Success')

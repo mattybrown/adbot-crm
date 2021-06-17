@@ -9,6 +9,8 @@ class PlatformsController < ApplicationController
   def show
     @platform = Platform.find(params[:id])
     @positions = @platform.positions
+    @clients = Client.all
+    @ad = Ad.new
   end
 
   def new

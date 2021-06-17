@@ -4,6 +4,24 @@
       <%= @platform.name %>
     </div>
     <div class="card-body">
+
+      <div class="btn-toolbar d-grid gap-2 d-md-flex justify-content-between">
+        <div class="btn-group">
+          <a href="#" class="btn btn-primary">Last</a>
+          <a href="#" class="btn btn-primary active">Next to go</a>
+          <a href="#" class="btn btn-primary">One after</a>
+        </div>
+        <div class="input-group">
+          <div class="input-group-text" id="btnGroupAddon2">From</div>
+          <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon2">
+          <div class="input-group-text" id="btnGroupAddon3">To</div>
+          <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon3">
+        </div>
+
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAd" type="submit">Create booking</button>
+      </div>
+
+      <hr />
       <div class="accordion" id="positionAccordion">
         <% @positions.each do |p| %>
           <% if p.ads.in_publication_range(Date.today, publication_end_range(p.platform.id)).count > 0 %>
@@ -13,7 +31,7 @@
                   <%= p.name %>
                 </button>
               </h2>
-              <div id="collapse<%= p.id %>" class="accordion-collapse collapse" aria-labelledby="heading-<%= p.id %>" data-bs-parent="#positionAccordion">
+              <div id="collapse<%= p.id %>" class="accordion-collapse collapse" aria-labelledby="heading-<%= p.id %>">
                 <div class="accordion-body">
 
                   <%= render partial: "shared/ad_table_container", locals: {ads: p.ads.in_publication_range(Date.today, publication_end_range(p.platform.id))} %>
@@ -25,6 +43,9 @@
         <% end %>
 
         </div> <!-- End accordion -->
+
+        <%= render partial: "booking", locals: {positions: @positions, clients: @clients} %>
+
       </div><!-- End card body -->
     </div>
 </section>
