@@ -14,7 +14,7 @@ module AdsHelper
   def value(collection)
     v = 0
     collection.each do |c|
-      c.price += v
+      v += c.price
     end
     return v
   end

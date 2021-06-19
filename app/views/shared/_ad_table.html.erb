@@ -4,7 +4,7 @@
       <td><%= ad.width.to_s + " x " + ad.height.to_s %></td>
       <td><%= ad.position.name %></td>
       <td><%= ad.position.platform.name %></td>
-      <td><%= ad.rundate.strftime("%a, %d %b") %></td>
+      <td><%= ad.rundate.strftime("%d/%m/%y") %></td>
       <td><%= ad.status %></td>
       <td>$<%= ad.price %></td>
       <% if can? :manage, User %>
