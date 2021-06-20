@@ -7,15 +7,11 @@
 
       <div class="btn-toolbar d-grid gap-2 d-md-flex justify-content-between">
         <div class="btn-group">
-          <a href="#" class="btn btn-primary">Last</a>
-          <a href="#" class="btn btn-primary active">Next to go</a>
-          <a href="#" class="btn btn-primary">One after</a>
+          <a href="#" class="btn btn-primary active">Next</a>
         </div>
-        <div class="input-group">
-          <div class="input-group-text" id="btnGroupAddon2">From</div>
-          <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon2">
-          <div class="input-group-text" id="btnGroupAddon3">To</div>
-          <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon3">
+
+        <div>
+          <%= "Showing ads #{Date.today} - #{publication_end_range(@platform.id)}" %>
         </div>
 
         <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAd" type="submit">Create booking</button>

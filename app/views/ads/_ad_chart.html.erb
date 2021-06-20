@@ -1,1 +1,1 @@
-<%= column_chart ads.group_by_month(:rundate).count, width: "100%", height: "200px" %>
+<%= column_chart ads.group_by_week(:rundate, last: 8).count, width: "100%", height: "200px" %>
